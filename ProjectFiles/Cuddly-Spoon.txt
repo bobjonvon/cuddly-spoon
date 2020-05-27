@@ -3,4 +3,6 @@ The idea of this project is that it will be both helpful and a good learning exp
 9:02 pm 5/21/202
     I have a better idea of what im doing now. 
     I am trying to learn about pyqt and im going through the book Fluent Python.
-    So the current idea is to merge these two concepts and introduce a gui to the python concepts shouwed in the books
+    So the current idea is to merge these two concepts and introduce a gui to the python concepts shouwed in the books.
+8:39 5/26/202
+    Im actually going to do a tensor flow search optimization thing. 
