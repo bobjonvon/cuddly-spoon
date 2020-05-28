@@ -14,25 +14,43 @@
 
 
 from random import randrange
+from tensorflow.keras.models import load_model
+from tensorflow.keras.models import save_model
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+
+#######################################################################
+#                              Constants                              #
+#######################################################################
+MAX_LIST_LENGTH           = 1500000 # The maximum length of any list fed 
+                                    # through the neural network. 
+LARGEST_POSSIBLE_ELEMENT  = 1000000 # The largest number possible in the 
+                                    # list 
+
 
 #######################################################################
 #                              MakeList                               #
 #######################################################################
 def makeList():
-    lengthOfList = randrange(1500000)
+    lengthOfList = randrange(MAX_LIST_LENGTH)
     listOfRandoms = []
     for x in range(lengthOfList):
-        listOfRandoms.append(randrange(1000000))
+        listOfRandoms.append(randrange(LARGEST_POSSIBLE_ELEMENT))
 
     return listOfRandoms
 
 #######################################################################
-#                          Gather List Data/nn inputs                 #
+#                          Clean Inputs for NN                        #
 #######################################################################
-#gathered data should enclude
-#length
-#number of repeating variables
-#unless i can just input the full list
+def cleanList(listOfRandoms):
+    for x in range(len(listOfRandoms)):
+        listOfRandoms[x] = listOfRandoms[x]/LARGEST_POSSIBLE_ELEMENT
+    while(len(listOfRandoms) < MAX_LIST_LENGTH):
+        listOfRandoms.append(0)
+    print(listOfRandoms)
+    print(len(listOfRandoms))
+
 
 
 
@@ -43,6 +61,7 @@ def makeList():
 #######################################################################
 def main():
     listOfRandoms = makeList()
+    cleanList(listOfRandoms)
     return
 
 main()
